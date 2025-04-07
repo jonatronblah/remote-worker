@@ -32,10 +32,9 @@ def mesh():
         capture_output=True,
         text=True,
     )
-    return result
-    # zip_buffer = handle_output(r)
-    # cleanup_output(r)
-    # return zip_buffer
+    zip_buffer = handle_output(r)
+    cleanup_output(r)
+    return zip_buffer
 
 
 def handle_output(id):
