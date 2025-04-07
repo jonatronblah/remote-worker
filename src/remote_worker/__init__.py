@@ -6,10 +6,10 @@ class Worker:
     def __init__(self, worker_settings) -> None:
         self.settings = worker_settings
         self.redis_conn = self._get_conn()
-        self.queue = self._get_queue()
+        self.dep_queue = self._get_queue()
 
     def _get_conn(self):
         return Redis(host=self.settings.REDIS_HOST, port=6379)
 
     def _get_queue(self):
-        return Queue(name=self.settings.QUEUE, connection=self.redis_conn)
+        return Queue(name=self.settings.DEP_QUEUE, connection=self.redis_conn)

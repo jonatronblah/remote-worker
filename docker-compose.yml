@@ -17,19 +17,3 @@ services:
               count: all
               capabilities: [ gpu ]
 
-
-  # worker-rm:
-  #   container_name: worker-rm
-  #   build:
-  #     context: .
-  #     dockerfile: mesh.Dockerfile
-  #   command: rq worker --url redis://192.168.1.117:6379 queuerm 
-  #   env_file:
-  #     - .env
-  #   deploy:
-  #     resources:
-  #       reservations:
-  #         devices:
-  #           - driver: nvidia
-  #             count: all
-  #             capabilities: [ gpu ]

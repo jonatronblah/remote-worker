@@ -4,7 +4,7 @@ from functools import lru_cache
 
 class BaseConfig:
     REDIS_HOST: str = os.environ.get("REDIS_HOST", "redis")
-    QUEUE: str = os.environ.get("QUEUE", "queue1")
+    DEP_QUEUE: str = os.environ.get("DEP_QUEUE", "queue1")
 
 
 @lru_cache()

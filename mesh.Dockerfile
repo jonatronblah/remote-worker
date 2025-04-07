@@ -2,7 +2,7 @@ FROM nvidia/cuda:12.4.1-devel-ubuntu22.04
 
 LABEL name="instantmesh" maintainer="instantmesh"
 
-FROM ghcr.io/astral-sh/uv:python3.10-bookworm-slimf
+FROM ghcr.io/astral-sh/uv:python3.10-bookworm-slim
 
 
 # Enable bytecode compilation
@@ -30,10 +30,12 @@ RUN uv pip install triton ninja
 
 
 # ADD . /app
+# RUN uv pip install .[instantmesh]
+RUN uv pip install "git+https://github.com/jonatronblah/remote-worker.git"[instantmesh]
 
 
 
-RUN uv pip install .[instantmesh]
+
 
 RUN git clone https://github.com/MrLemur/InstantMesh
 
