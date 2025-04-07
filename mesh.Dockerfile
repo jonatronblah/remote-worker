@@ -14,7 +14,7 @@ RUN apt-get update && \
 RUN git clone https://github.com/MrLemur/InstantMesh /workspace/instantmesh
 RUN git clone https://github.com/jonatronblah/remote-worker.git
 WORKDIR remote-worker
-RUN python3.10 -m pip install .[instantmesh]
+RUN python3.10 -m pip install "git+https://github.com/jonatronblah/remote-worker.git"
 
 
 RUN python3.10 -m pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 xformers==0.0.29.post1 --index-url https://download.pytorch.org/whl/cu124

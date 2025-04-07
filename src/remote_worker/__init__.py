@@ -49,7 +49,6 @@ class MeshWorker:
             zip.write(f"outputs/{id}.obj")
             zip.write(f"outputs/{id}.mtl")
             zip.write(f"outputs/{id}.png")
-        self.cleanup()
         return buffer, id
 
     def cleanup(self):
@@ -58,3 +57,11 @@ class MeshWorker:
         os.remove(f"outputs/{id}.obj")
         os.remove(f"outputs/{id}.mtl")
         os.remove(f"outputs/{id}.png")
+
+
+def main():
+    mw = MeshWorker(worker_settings=settings)
+    mw.generate()
+    buffer = mw.handle_results()
+    mw.cleanup()
+    return buffer
