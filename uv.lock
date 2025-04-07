@@ -2,13 +2,6 @@ version = 1
 revision = 1
 requires-python = ">=3.10"
 
-[manifest]
-members = [
-    "remote-worker",
-    "remote-worker-core",
-    "remote-worker-instantmesh",
-]
-
 [[package]]
 name = "async-timeout"
 version = "5.0.1"
@@ -59,33 +52,8 @@ dependencies = [
     { name = "rq" },
 ]
 
-[package.optional-dependencies]
-instantmesh = [
-    { name = "remote-worker-instantmesh" },
-]
-
 [package.metadata]
-requires-dist = [
-    { name = "remote-worker-instantmesh", marker = "extra == 'instantmesh'", editable = "libs/remote-worker-instantmesh" },
-    { name = "rq", specifier = ">=2.3.1" },
-]
-provides-extras = ["instantmesh"]
-
-[[package]]
-name = "remote-worker-core"
-version = "0.1.0"
-source = { editable = "libs/remote-worker-core" }
-
-[[package]]
-name = "remote-worker-instantmesh"
-version = "0.1.0"
-source = { editable = "libs/remote-worker-instantmesh" }
-dependencies = [
-    { name = "remote-worker-core" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "remote-worker-core", editable = "libs/remote-worker-core" }]
+requires-dist = [{ name = "rq", specifier = ">=2.3.1" }]
 
 [[package]]
 name = "rq"
