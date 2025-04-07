@@ -1,0 +1,29 @@
+[project]
+name = "remote-worker"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Jonathan Scheer", email = "jonatron@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "rq>=2.3.1",
+]
+
+[project.optional-dependencies]
+instantmesh = [
+    "remote-worker-instantmesh",
+]
+
+
+[tool.uv.sources]
+remote-worker-core = { workspace = true }
+remote-worker-instantmesh = { workspace = true }
+
+[tool.uv.workspace]
+members = ["libs/*"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

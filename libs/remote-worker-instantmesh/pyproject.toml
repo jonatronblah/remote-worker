@@ -1,0 +1,17 @@
+[project]
+name = "remote-worker-instantmesh"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Jonathan Scheer", email = "jonatron@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.2.3",
+    "remote-worker-core",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
