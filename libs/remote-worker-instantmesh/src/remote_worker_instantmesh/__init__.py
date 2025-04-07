@@ -45,7 +45,7 @@ class MeshWorker(Worker):
             zip.write(f"outputs/{id}.obj")
             zip.write(f"outputs/{id}.mtl")
             zip.write(f"outputs/{id}.png")
-        return buffer
+        return buffer, id
 
     def cleanup(self):
         id = self.id
