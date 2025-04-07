@@ -1,11 +1,15 @@
 from remote_worker import Worker
 from remote_worker.config import settings
 
-w = Worker(worker_settings=settings)
+
+class MeshWorker(Worker):
+    def __init__(self, worker_settings) -> None:
+        super().__init__(worker_settings)
 
 
 def main():
-    print(w.settings.REDIS_HOST)
+    mw = MeshWorker(worker_settings=settings)
+    print(mw.settings.REDIS_HOST)
 
 
 if "__name__" == "__main__":

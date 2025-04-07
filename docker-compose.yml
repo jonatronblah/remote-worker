@@ -1,12 +1,10 @@
-worker-rm:
-  container_name: worker-rm
-  build:
-    context: .
-  working_dir: /app/src
-  command: granian --interface asgi main:app --host 0.0.0.0 --port 5000 --reload
-  volumes:
-    - ./src:/app/src
-  ports:
-    - 5000:5000
-  env_file:
-    - .env
+
+services:
+  worker-rm:
+    container_name: worker-rm
+    build:
+      context: .
+    working_dir: /app/src
+    command: instantmesh
+    env_file:
+      - .env
