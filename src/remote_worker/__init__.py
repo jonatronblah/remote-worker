@@ -4,12 +4,14 @@ from zipfile import ZipFile
 import subprocess
 import io
 import os
+from uuid import uuid4
 
 from remote_worker.config import settings
 
 
 class MeshWorker:
     def __init__(self, worker_settings) -> None:
+        self.id = uuid4().hex
         self.settings = worker_settings
         self.redis_conn = self._get_conn()
         self.dep_queue = self._get_queue()
