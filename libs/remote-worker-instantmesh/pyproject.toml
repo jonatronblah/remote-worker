@@ -12,6 +12,9 @@ dependencies = [
     "remote-worker-core",
 ]
 
+[project.scripts]
+instantmesh = "remote_worker_instantmesh:main"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
