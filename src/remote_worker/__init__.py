@@ -48,17 +48,17 @@ class MeshWorker:
         id = self.id
         buffer = io.BytesIO()
         with ZipFile(buffer, "w") as zip:
-            zip.write(f"outputs/instant-mesh-large/{id}.obj")
-            zip.write(f"outputs/instant-mesh-large/{id}.mtl")
-            zip.write(f"outputs/instant-mesh-large/{id}.png")
+            zip.write(f"outputs/instant-mesh-large/meshes/{id}.obj")
+            zip.write(f"outputs/instant-mesh-large/meshes/{id}.mtl")
+            zip.write(f"outputs/instant-mesh-large/meshes/{id}.png")
         return buffer, id
 
     def cleanup(self):
         id = self.id
         os.remove(f"tmp/{id}.jpg")
-        os.remove(f"outputs/instant-mesh-large/{id}.obj")
-        os.remove(f"outputs/instant-mesh-large/{id}.mtl")
-        os.remove(f"outputs/instant-mesh-large/{id}.png")
+        os.remove(f"outputs/instant-mesh-large/meshes/{id}.obj")
+        os.remove(f"outputs/instant-mesh-large/meshes/{id}.mtl")
+        os.remove(f"outputs/instant-mesh-large/meshes/{id}.png")
 
 
 def main():
