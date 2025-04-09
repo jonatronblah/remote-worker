@@ -25,7 +25,7 @@ class MeshWorker:
     def generate(self):
         path = f"tmp/{self.id}.jpg"
 
-        img_job = get_current_job(self.settings.redis_conn)
+        img_job = get_current_job(self.redis_conn)
         img_job_id = img_job.dependency.id
         img_job_res = self.dep_queue.fetch_job(img_job_id).result
         value = img_job_res
