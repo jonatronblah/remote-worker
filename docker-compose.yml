@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: mesh.Dockerfile
-    command: rq worker --url redis://192.168.1.237:6379 queuerm 
+    command: rq worker --url redis://192.168.1.18:6379 queuerm 
     env_file:
       - .env
     volumes:
