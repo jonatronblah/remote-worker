@@ -64,6 +64,6 @@ class MeshWorker:
 def main():
     mw = MeshWorker(worker_settings=settings)
     mw.generate()
-    buffer = mw.handle_results()
+    buffer, _id = mw.handle_results()
     mw.cleanup()
-    return buffer
+    return buffer, _id
