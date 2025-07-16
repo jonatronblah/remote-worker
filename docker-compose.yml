@@ -1,0 +1,16 @@
+services:
+  notebook:
+    build:
+      context: .
+    command: uv run jupyter notebook --notebook-dir=/notebooks --ip 0.0.0.0 --no-browser --allow-root --ServerApp.token='' --ServerApp.password=''
+    volumes:
+      - ./notebooks:/notebooks
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]    
+    ports:
+      - 80:8888

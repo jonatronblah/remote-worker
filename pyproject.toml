@@ -1,49 +1,48 @@
 [project]
-name = "remote-worker"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
 authors = [
-    { name = "Jonathan Scheer", email = "jonatron@gmail.com" }
+  {name = "Jonathan Scheer", email = "jonatron@gmail.com"},
 ]
-requires-python = ">=3.12"
 dependencies = [
-    "altair>=5.5.0",
-    "flash-attention>=1.0.0",
-    "polars>=1.31.0",
-    "rq>=2.4.0",
-    "xformers>=0.0.31.post1",
-    "rq-scheduler>=0.14.0",
-    "safetensors>=0.5.3",
-    "torch>=2.7.1",
-    "torchaudio>=2.7.1",
-    "torchvision>=0.22.1",
-    "transformers>=4.53.2",
-    "flash-attn>=2.8.1",
-    "autogluon>=1.3.1"
+  "altair>=5.5.0",
+  "flash-attention>=1.0.0",
+  "polars>=1.31.0",
+  "rq>=2.4.0",
+  "xformers>=0.0.31.post1",
+  "rq-scheduler>=0.14.0",
+  "safetensors>=0.5.3",
+  "torch>=2.7.1",
+  "torchaudio>=2.7.1",
+  "torchvision>=0.22.1",
+  "transformers>=4.53.2",
 ]
+description = "Add your description here"
+name = "remote-worker"
+readme = "README.md"
+requires-python = ">=3.12"
+version = "0.1.0"
+
+[tool.uv]
+preview = true
 
 [build-system]
-requires = ["hatchling"]
 build-backend = "hatchling.build"
+requires = ["hatchling"]
 
 [tool.uv.sources]
-torch = { index = "pytorch" }
-torchaudio = { index = "pytorch" }
-torchvision = { index = "pytorch" }
+torch = {index = "pytorch"}
+torchaudio = {index = "pytorch"}
+torchvision = {index = "pytorch"}
 
 [[tool.uv.index]]
+explicit = true
 name = "pytorch"
 url = "https://download.pytorch.org/whl/cu128"
-explicit = true
 
 [dependency-groups]
 dev = [
-    "ipykernel>=6.29.5",
-    "ipywidgets>=8.1.7",
-    "notebook>=7.4.4",
-    "pytest>=8.4.1",
-    "ruff>=0.12.3",
+  "ipykernel>=6.29.5",
+  "ipywidgets>=8.1.7",
+  "notebook>=7.4.4",
+  "pytest>=8.4.1",
+  "ruff>=0.12.3",
 ]
-
-
