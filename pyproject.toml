@@ -8,34 +8,16 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
-    "lightning>=2.5.2",
-    "numpy>=2.3.1",
-    "peft>=0.16.0",
-    "pillow>=11.3.0",
-    "pydantic>=2.11.7",
-    "pydantic-settings>=2.10.1",
-    "rq>=2.4.0",
-    "rq-scheduler>=0.14.0",
-    "safetensors>=0.5.3",
-    "torch>=2.7.1",
-    "torchaudio>=2.7.1",
-    "torchvision>=0.22.1",
-    "transformers>=4.53.2",
+    "altair>=5.5.0",
+    "flash-attention>=1.0.0",
+    "polars>=1.31.0",
+    "xformers>=0.0.31.post1",
 ]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.uv.sources]
-torch = { index = "pytorch" }
-torchaudio = { index = "pytorch" }
-torchvision = { index = "pytorch" }
-
-[[tool.uv.index]]
-name = "pytorch"
-url = "https://download.pytorch.org/whl/cu128"
-explicit = true
 
 [dependency-groups]
 dev = [
