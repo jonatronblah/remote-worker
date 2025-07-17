@@ -14,3 +14,5 @@ services:
               capabilities: [ gpu ]    
     ports:
       - 8888:8888
+    env_file:
+      - .env

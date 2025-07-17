@@ -1,2 +1,1 @@
-def hello() -> str:
-    return "Hello from remote-worker!"
+from remote_worker.config import settings
