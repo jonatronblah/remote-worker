@@ -37,10 +37,10 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # RUN --mount=type=cache,target=/root/.cache/uv \
 #     uv sync --no-dev
 
-RUN uv pip install autogluon
+# RUN uv pip install autogluon
 ENV PATH="$PATH:/opt/gtk/bin"
 RUN uv pip install flash-attn --no-build-isolation
-RUN uv pip install "git+https://github.com/DataDog/toto"
+# RUN uv pip install "git+https://github.com/DataDog/toto"
 
 
 RUN uv pip install jupyter

@@ -1,25 +1,20 @@
-import argparse
 import glob
 import json
 import os
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-from typing import Union, Optional
 
-import gradio as gr
 import numpy as np
 import torch
 import torch.nn.functional as F
 import tqdm
 from huggingface_hub import hf_hub_download
-from transformers import DynamicCache
+from transformers.cache_utils import DynamicCache
 from safetensors.torch import load_file as safe_load_file
 
 from . import MIDI
-from .midi_model import MIDIModel, config_name_list, MIDIModelConfig
-from .midi_synthesizer import MidiSynthesizer
-from .midi_tokenizer import MIDITokenizerV1, MIDITokenizerV2
+from .midi_model import MIDIModel, MIDIModelConfig
 
 MAX_SEED = np.iinfo(np.int32).max
 
@@ -447,46 +442,3 @@ def get_lora_path():
         lora_path.replace("adapter_config.json", "") for lora_path in lora_paths
     ]
     return gr.Dropdown(choices=lora_paths)
-
-
-def main(fileName):
-    with open(fileName, mode="rb") as file:  # b is important -> binary
-        midi_file = file.read()
-
-    OUTPUT_BATCH_SIZE = 4
-    soundfont_path = hf_hub_download(
-        repo_id="skytnt/midi-model", filename="soundfont.sf2"
-    )
-    synthesizer = MidiSynthesizer(soundfont_path)
-    thread_pool = ThreadPoolExecutor(max_workers=OUTPUT_BATCH_SIZE)
-    model_paths = get_model_path()
-    model, tokenizer = load_model(model_paths[1], "tv2o-medium", [])
-    mid_seq = run(
-        model,
-        tokenizer,
-        4,
-        1,
-        None,
-        [0],
-        0,
-        None,
-        None,
-        0,
-        "auto",
-        0,
-        midi_file,
-        2048,
-        True,
-        True,
-        True,
-        True,
-        0,
-        True,
-        2048,
-        1.0,
-        0.98,
-        20,
-        True,
-    )
-    outputs = finish_run(mid_seq, OUTPUT_BATCH_SIZE, tokenizer)
-    return outputs

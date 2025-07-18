@@ -9,8 +9,7 @@ from typing import Optional
 
 import typer
 
-from .midi_worker import generate, run, load_model, finish_run
-
+from remote_worker.midi_model.midi_worker import run, finish_run, load_model, get_model_path 
 
 app_version = "0.1.0"
 
@@ -19,6 +18,16 @@ class MIDIWorkerException(Exception):
     """Generic MyApp exception"""
 
     pass
+
+class MIDIWorker:
+    version = app_version
+    name = "Midi-Worker"
+
+    def __init__(self, midi_filepath) -> None:
+        pass
+
+    def load_midi(self):
+        
 
 
 worker_cli = typer.Typer(
