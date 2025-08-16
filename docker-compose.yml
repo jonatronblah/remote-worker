@@ -1,12 +1,11 @@
 services:
-  notebook:
-    container_name: wrkr_notebook
+  magenta-worker:
+    container_name: magenta-worker
     build:
       context: .
-    command: uv run jupyter notebook --notebook-dir=/notebooks --ip 0.0.0.0 --no-browser --allow-root --ServerApp.token='' --ServerApp.password=''
+    command: jupyter notebook --notebook-dir=/notebooks --ip 0.0.0.0 --no-browser --allow-root --ServerApp.token='' --ServerApp.password=''
     volumes:
       - ./notebooks:/notebooks
-      - cache_vol:/.cache
     deploy:
       resources:
         reservations:
@@ -18,7 +17,3 @@ services:
       - 8888:8888
     env_file:
       - .env
-
-volumes:
-  cache_vol:
-    name: cache_vol
