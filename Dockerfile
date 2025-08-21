@@ -8,4 +8,6 @@ FROM lauriewired/musicbeats:latest
 
 RUN pip install jupyter rq rq-scheduler
 
+ENTRYPOINT [  ]
+
 

@@ -1,3 +1,6 @@
+cache/*
+*.tar
+
 notebooks/*
 magenta-realtime/
 # Byte-compiled / optimized / DLL files
